@@ -11,8 +11,6 @@ public class StartUI {
         item.setName("two");
         tracker.add(item);
         item = new Item();
-        tracker.add(item);
-        item = new Item();
         item.setName("three");
         tracker.add(item);
         item = new Item();

@@ -19,15 +19,14 @@ public class StartUI {
                     System.out.println("=== Create a new Item ====");
                     System.out.print("Enter name: ");
                     name = scanner.nextLine();
-                    item = new Item();
-                    item.setName(name);
+                    item = new Item(name);
                     tracker.add(item);
                     break;
                 case 1:
                     System.out.println("=== All items ====");
                     items = tracker.findAll();
                     for (Item element : items) {
-                        System.out.println(element.getId() + " " + element.getName());
+                        System.out.println(element);
                     }
                     break;
                 case 2:
@@ -36,8 +35,7 @@ public class StartUI {
                     id = Integer.parseInt(scanner.nextLine());
                     System.out.print("Enter new name: ");
                     name = scanner.nextLine();
-                    item = new Item();
-                    item.setName(name);
+                    item = new Item(name);
                     if (tracker.replace(id, item)) {
                         System.out.println("Success");
                     } else {
@@ -63,7 +61,7 @@ public class StartUI {
                     if (item == null) {
                         System.out.println("Item not found by this id " + id);
                     } else {
-                        System.out.println(item.getId() + " " + item.getName());
+                        System.out.println(item);
                     }
                     break;
                 case 5:
@@ -73,7 +71,7 @@ public class StartUI {
                     items = tracker.findByName(name);
                     if (items.length > 0) {
                         for (Item element : items) {
-                            System.out.println(element.getId() + " " + element.getName());
+                            System.out.println(element);
                         }
                     } else {
                         System.out.println("Items not found by this name " + name);

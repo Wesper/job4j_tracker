@@ -40,4 +40,29 @@ public class TrackerTest {
         assertThat(tracker.findById(id), is(nullValue()));
     }
 
+    @Test
+    public void whenAddItem() {
+        String[] answers = {"Fix PC"};
+        Input input = new StubInput(answers);
+        Tracker tracker = new Tracker();
+        StartUI.createItem(input, tracker);
+        Item created = tracker.findAll()[0];
+        Item expected = new Item("Fix PC");
+        assertThat(created.getName(), is(expected.getName()));
+    }
+
+    @Test
+    public void whenFindByNameItems() {
+        String[] answers = {"One", "Two", "Three"};
+        Input input = new StubInput(answers);
+        Tracker tracker = new Tracker();
+        StartUI.createItem(input, tracker);
+        Item created = tracker.findByName("One")[0];
+        Item expected = new Item("One");
+        expected.setId(1);
+        assertThat(created.getName(), is(expected.getName()));
+        assertThat(created.getId(), is(expected.getId()));
+    }
+
+
 }

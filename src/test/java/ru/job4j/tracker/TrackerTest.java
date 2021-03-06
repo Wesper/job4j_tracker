@@ -84,8 +84,7 @@ public class TrackerTest {
         Item item = new Item("One");
         tracker.add(item);
         String[] answers = {
-                String.valueOf(item.getId()),
-                "One"
+                String.valueOf(item.getId())
         };
         StartUI.deleteItem(new StubInput(answers), tracker);
         Item deleted = tracker.findById(item.getId());
